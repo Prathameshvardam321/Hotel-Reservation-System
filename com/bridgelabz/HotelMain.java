@@ -5,19 +5,16 @@ import java.util.Scanner;
 
 public class HotelMain {
     ArrayList<Hotel> hotelArrayList = new ArrayList<>();
-    void generateData(int weekdays, int weekend) {
-        Hotel lakeWood = new Hotel("LakeWood", 110, 90, 3);
-        Hotel bridgeWood = new Hotel("BridgeWood", 110, 80, 4);
-        Hotel ridgeWood = new Hotel("RidgeWood", 150, 220, 4);
-        hotelArrayList.add(lakeWood);
-        hotelArrayList.add(ridgeWood);
-        hotelArrayList.add(bridgeWood);
-    }
-
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Scanner stringScanner = new Scanner(System.in);
+        Week week = new Week();
         ArrayList<Hotel> hotels = new ArrayList<>();
+        System.out.println("Enter entry date : ");
+        String entryDate = scanner.next();
+        System.out.println("Entry exit date : ");
+        String exitDate = scanner.next();
+        int weekDays = (int) week.getWeekdays(entryDate,exitDate);
+        int weekend = (int) week.getWeekends(entryDate,exitDate);
         int userChoice ;
         do {
             System.out.println("1.Add Details\t2.Add rating\t3.view");
@@ -26,22 +23,16 @@ public class HotelMain {
             switch (userChoice){
                 case 1:Hotel hotel =new Hotel();
                        hotel.inputToHotel();
-                       hotels.add(hotel);break;
+                       hotel.setTotalExpense( hotel.expenseOfHotel(weekDays,weekend));
+                       hotels.add(hotel);
+                       break;
                 case 2:
-                    System.out.println("Enter hotel name to enter :");
-                    String name = stringScanner.next();
-                    Iterator<Hotel> iterator = hotels.iterator();
-                    while (iterator.hasNext()){
-                        hotel = iterator.next();
-                        if (hotel.getName().equals(name)){
-                            System.out.println("Enter rating : ");
-                            hotel.setRating(scanner.nextInt());
-                            System.out.println("Added successfully");
-                        }
-                    }
+                  Hotel firstHotel = hotels.get(0);
+                   Hotel cheaperHotel = hotels.stream().reduce(firstHotel,(a,b)->a.getTotalExpense()<b.getTotalExpense()?a:b);
+                    System.out.println(cheaperHotel.getName()+" is cheaper hotel with rate : "+cheaperHotel.getTotalExpense());
                     break;
                 case 3:
-                    iterator = hotels.iterator();
+                    Iterator<Hotel> iterator = hotels.iterator();
                     while (iterator.hasNext()){
                         hotel = iterator.next();
                         System.out.println(hotel);

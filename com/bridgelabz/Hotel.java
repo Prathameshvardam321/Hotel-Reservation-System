@@ -1,14 +1,21 @@
 package com.bridgelabz;
-
 import java.util.ArrayList;
 import java.util.Scanner;
-
 public class Hotel {
     ArrayList<Hotel> hotelArrayList = new ArrayList<>();
     private String name;
     private int weekDayRateForRegularCustomer;
     private int weekeendRatesForRegularCustomer;
     private int rating;
+    private int totalExpense;
+
+    public int getTotalExpense() {
+        return totalExpense;
+    }
+
+    public void setTotalExpense(int totalExpense) {
+        this.totalExpense = totalExpense;
+    }
 
     public Hotel() {
     }
@@ -58,21 +65,20 @@ public class Hotel {
 
     @Override
     public String toString() {
-        return "Hotel{" +
+        return " Hotel { " +
                 "name='" + name + '\'' +
                 ", weekDayRateForRegularCustomer=" + weekDayRateForRegularCustomer +
-                ", weekendRatesForRegularCustomer=" + weekeendRatesForRegularCustomer +
-                ", rating=" + rating +
-                '}';
+                ", weekendRatesForRegularCustomer=" + weekeendRatesForRegularCustomer +" , totalExpense "+totalExpense+ '}';
     }
 
     void inputToHotel(){
      Scanner scanner = new Scanner(System.in);
-     System.out.println("Enter name : ");
+     System.out.println("Enter hotel name : ");
      this.name = scanner.next();
      System.out.println("weekdays rate : ");
      this.weekDayRateForRegularCustomer = scanner.nextInt();
      System.out.println("weekend days rate : ");
      this.weekeendRatesForRegularCustomer = scanner.nextInt();
+
  }
 }
