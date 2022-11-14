@@ -30,6 +30,7 @@ public class Hotel {
         this.weekDayRateForRegularCustomer = weekeendRatesForRegularCustomer;
     }
 
+
     public int getWeekendRatesForRegularCustomer() {
         return weekeendRatesForRegularCustomer;
     }

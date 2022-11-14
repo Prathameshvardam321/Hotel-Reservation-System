@@ -3,6 +3,7 @@ package com.bridgelabz;
 import java.util.ArrayList;
 
 public class HotelList {
+
     static ArrayList<Hotel> hotels = new ArrayList<>();
 
     public void addData(int weekdays,int weekend){
