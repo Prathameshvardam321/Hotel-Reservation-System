@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Week {
+
     long getWeekends(String strStartDate, String strEndDate) {
         Map<String, List<LocalDate>> map = new HashMap<>();
         List<LocalDate> weekdays = new ArrayList<>();

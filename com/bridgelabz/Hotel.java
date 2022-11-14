@@ -8,7 +8,33 @@ public class Hotel {
     private int weekeendRatesForRegularCustomer;
     private double rating;
     private int totalExpense;
+    private int weekDayRateForRewardCustomer;
 
+    public int getWeekeendRatesForRegularCustomer() {
+        return weekeendRatesForRegularCustomer;
+    }
+
+    public void setWeekeendRatesForRegularCustomer(int weekeendRatesForRegularCustomer) {
+        this.weekeendRatesForRegularCustomer = weekeendRatesForRegularCustomer;
+    }
+
+    public int getWeekDayRateForRewardCustomer() {
+        return weekDayRateForRewardCustomer;
+    }
+
+    public void setWeekDayRateForRewardCustomer(int weekDayRateForRewardCustomer) {
+        this.weekDayRateForRewardCustomer = weekDayRateForRewardCustomer;
+    }
+
+    public int getWeekendRateForRewardCustomer() {
+        return weekendRateForRewardCustomer;
+    }
+
+    public void setWeekendRateForRewardCustomer(int weekendRateForRewardCustomer) {
+        this.weekendRateForRewardCustomer = weekendRateForRewardCustomer;
+    }
+
+    private int weekendRateForRewardCustomer;
     public int getTotalExpense() {
         return totalExpense;
     }
@@ -71,7 +97,7 @@ public class Hotel {
                 ", weekendRatesForRegularCustomer=" + weekeendRatesForRegularCustomer +" , totalExpense "+totalExpense+ " ,rating "+rating+'}';
     }
 
-    void inputToHotel(){
+    void inputToHotelToCustomer(){
      Scanner scanner = new Scanner(System.in);
      System.out.println("Enter hotel name : ");
      this.name = scanner.next();
@@ -79,8 +105,19 @@ public class Hotel {
      this.weekDayRateForRegularCustomer = scanner.nextInt();
      System.out.println("weekend days rate : ");
      this.weekeendRatesForRegularCustomer = scanner.nextInt();
+     System.out.println("Enter hotel rating : ");
+     this.setRating(scanner.nextDouble());
+ }
+ void inputToRewardCustomers(){
+        Scanner scanner = new Scanner(System.in);
+         System.out.println("Enter hotel name : ");
+         this.name = scanner.next();
+        System.out.println("Enter weekday rate : ");
+        weekDayRateForRewardCustomer = scanner.nextInt();
+        System.out.println("Enter weekend rate :");
+        weekendRateForRewardCustomer = scanner.nextInt();
         System.out.println("Enter hotel rating : ");
         this.setRating(scanner.nextDouble());
 
- }
+    }
 }

@@ -22,19 +22,18 @@ public class HotelMain {
             userChoice = scanner.nextInt();
             switch (userChoice){
                 case 1:Hotel hotel =new Hotel();
-                       hotel.inputToHotel();
-                       hotel.setTotalExpense( hotel.expenseOfHotel(weekDays,weekend));
-                       hotels.add(hotel);
+                    System.out.println("choose customer\n 1.Normal customer\n2.Reward customer");
+                    int customerType = scanner.nextInt();
+                    if (customerType==1){
+                        hotel.inputToHotelToCustomer();
+                    }else if(customerType==2) {
+                        hotel.inputToRewardCustomers();
+                    }else {
+                        System.out.println("Enter valid input.");
+                    }
                        break;
+
                 case 2:
-                  Hotel firstHotel = hotels.get(0);
-                   Hotel bestRatedHotel = hotels.stream().reduce(firstHotel,(a,b)->a.getRating()> b.getRating()?a:b);
-                   double bestRating = bestRatedHotel.getRating();
-                    System.out.println("Hotels with best ratings are as followed : ");
-                   hotels.stream().filter(x->x.getRating()==bestRating).forEach(x-> System.out.println(x));
-//                    System.out.println(bestRatedHotel.getName()+" is best rated hotel with rating : "+bestRatedHotel.getRating()+" with total expenses "+bestRatedHotel.getTotalExpense());
-                    break;
-                case 3:
                     Iterator<Hotel> iterator = hotels.iterator();
                     while (iterator.hasNext()){
                         hotel = iterator.next();
