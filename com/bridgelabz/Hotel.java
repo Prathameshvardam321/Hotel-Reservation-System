@@ -41,4 +41,14 @@ public class Hotel {
         int expense = weekdays*weekDayRateForRegularCustomer+weekend*weekeendRatesForRegularCustomer;
         return expense;
     }
+
+    @Override
+    public String toString() {
+        return "Hotel{" +
+                "name='" + name + '\'' +
+                ", weekDayRateForRegularCustomer=" + weekDayRateForRegularCustomer +
+                ", weekeendRatesForRegularCustomer=" + weekeendRatesForRegularCustomer +
+                ", rating=" + rating +
+                '}';
+    }
 }
