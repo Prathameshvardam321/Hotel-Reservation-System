@@ -28,8 +28,8 @@ public class HotelMain {
                        break;
                 case 2:
                   Hotel firstHotel = hotels.get(0);
-                   Hotel cheaperHotel = hotels.stream().reduce(firstHotel,(a,b)->a.getTotalExpense()<b.getTotalExpense()?a:b);
-                    System.out.println(cheaperHotel.getName()+" is cheaper hotel with rate : "+cheaperHotel.getTotalExpense());
+                   Hotel cheaperHotel = hotels.stream().reduce(firstHotel,(a,b)->a.getTotalExpense()<b.getTotalExpense()&&a.getRating()> b.getRating()?a:b);
+                    System.out.println(cheaperHotel.getName()+" is cheaper hotel with rate : "+cheaperHotel.getTotalExpense()+" with rating "+cheaperHotel.getRating());
                     break;
                 case 3:
                     Iterator<Hotel> iterator = hotels.iterator();
@@ -38,8 +38,9 @@ public class HotelMain {
                         System.out.println(hotel);
                     }
                     break;
+                default:
+                    System.out.println("Enter valid inputs .");
             }
-
         }while (userChoice!=0);
     }
 }

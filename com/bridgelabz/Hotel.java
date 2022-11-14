@@ -6,7 +6,7 @@ public class Hotel {
     private String name;
     private int weekDayRateForRegularCustomer;
     private int weekeendRatesForRegularCustomer;
-    private int rating;
+    private double rating;
     private int totalExpense;
 
     public int getTotalExpense() {
@@ -27,11 +27,11 @@ public class Hotel {
         this.rating = rating;
     }
 
-    public int getRating() {
+    public double getRating() {
         return rating;
     }
 
-    public void setRating(int rating) {
+    public void setRating(double rating) {
         this.rating = rating;
     }
 
@@ -68,7 +68,7 @@ public class Hotel {
         return " Hotel { " +
                 "name='" + name + '\'' +
                 ", weekDayRateForRegularCustomer=" + weekDayRateForRegularCustomer +
-                ", weekendRatesForRegularCustomer=" + weekeendRatesForRegularCustomer +" , totalExpense "+totalExpense+ '}';
+                ", weekendRatesForRegularCustomer=" + weekeendRatesForRegularCustomer +" , totalExpense "+totalExpense+ " ,rating "+rating+'}';
     }
 
     void inputToHotel(){
@@ -79,6 +79,7 @@ public class Hotel {
      this.weekDayRateForRegularCustomer = scanner.nextInt();
      System.out.println("weekend days rate : ");
      this.weekeendRatesForRegularCustomer = scanner.nextInt();
-
+        System.out.println("Enter hotel rating : ");
+        this.setRating(scanner.nextDouble());
  }
 }
