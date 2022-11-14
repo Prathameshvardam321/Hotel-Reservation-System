@@ -81,5 +81,6 @@ public class Hotel {
      this.weekeendRatesForRegularCustomer = scanner.nextInt();
         System.out.println("Enter hotel rating : ");
         this.setRating(scanner.nextDouble());
+
  }
 }

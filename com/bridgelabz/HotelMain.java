@@ -28,8 +28,11 @@ public class HotelMain {
                        break;
                 case 2:
                   Hotel firstHotel = hotels.get(0);
-                   Hotel cheaperHotel = hotels.stream().reduce(firstHotel,(a,b)->a.getTotalExpense()<b.getTotalExpense()&&a.getRating()> b.getRating()?a:b);
-                    System.out.println(cheaperHotel.getName()+" is cheaper hotel with rate : "+cheaperHotel.getTotalExpense()+" with rating "+cheaperHotel.getRating());
+                   Hotel bestRatedHotel = hotels.stream().reduce(firstHotel,(a,b)->a.getRating()> b.getRating()?a:b);
+                   double bestRating = bestRatedHotel.getRating();
+                    System.out.println("Hotels with best ratings are as followed : ");
+                   hotels.stream().filter(x->x.getRating()==bestRating).forEach(x-> System.out.println(x));
+//                    System.out.println(bestRatedHotel.getName()+" is best rated hotel with rating : "+bestRatedHotel.getRating()+" with total expenses "+bestRatedHotel.getTotalExpense());
                     break;
                 case 3:
                     Iterator<Hotel> iterator = hotels.iterator();
