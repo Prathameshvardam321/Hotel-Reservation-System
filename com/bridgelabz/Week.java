@@ -8,18 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Week {
-    public static void main(String[] args) {
-        // Test
-//         = getWeekdaysAndWeekends("1/6/2020", "7/6/2020");
-//        List<LocalDate> weekdays = map.get("weekdays");
-//        List<LocalDate> weekends = map.get("weekends");
 
-//        System.out.println("Weekdays:");
-//        weekdays.forEach(System.out::println);
-//
-//        System.out.println("Weekends:");
-//        weekends.forEach(System.out::println);
-    }
     static long getWeekends(String strStartDate, String strEndDate) {
         Map<String, List<LocalDate>> map = new HashMap<>();
         List<LocalDate> weekdays = new ArrayList<>();

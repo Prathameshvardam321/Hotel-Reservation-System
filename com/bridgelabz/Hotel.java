@@ -1,9 +1,22 @@
 package com.bridgelabz;
 
+import java.util.ArrayList;
+
 public class Hotel {
+    ArrayList<Hotel> hotelArrayList = new ArrayList<>();
     private String name;
     private int weekDayRateForRegularCustomer;
     private int weekeendRatesForRegularCustomer;
+    private int totalExpense = weekDayRateForRegularCustomer*weekeendRatesForRegularCustomer;
+
+    public int getTotalExpense() {
+        return totalExpense;
+    }
+
+    public void setTotalExpense(int totalExpense) {
+        this.totalExpense = totalExpense;
+    }
+
     private int rating;
 
     public int getRating() {
@@ -50,5 +63,27 @@ public class Hotel {
                 ", weekeendRatesForRegularCustomer=" + weekeendRatesForRegularCustomer +
                 ", rating=" + rating +
                 '}';
+    }
+    void generateData(int weekdays,int weekend){
+        Hotel lakeWood = new Hotel();
+        lakeWood.setName("LakeWood");
+        lakeWood.setWeekDayRateForRegularCustomer(110);
+        lakeWood.setWeekendRatesForRegularCustomer(90);
+        lakeWood.setRating(4);
+        lakeWood.expenseOfHotel(weekdays,weekend);
+        int expenseLake =lakeWood.expenseOfHotel(weekdays,weekend);
+        Hotel bridgeWood = new Hotel();
+        bridgeWood.setName("BridgeWood");
+        bridgeWood.setWeekDayRateForRegularCustomer(110);
+        bridgeWood.setWeekendRatesForRegularCustomer(80);
+        bridgeWood.setRating(3);
+        int expenseBridge = bridgeWood.expenseOfHotel(weekdays,weekend);
+        Hotel ridgeWood = new Hotel();
+        ridgeWood.setName("RidgeWood");
+        ridgeWood.setWeekendRatesForRegularCustomer(150);
+        ridgeWood.setWeekDayRateForRegularCustomer(220);
+        ridgeWood.setRating(4);
+        int expenseRidge = ridgeWood.expenseOfHotel(weekdays,weekend);
+        int cheaperRate =hotelArrayList.stream().reduce(0,(a,b)->a.expenseOfHotel(weekdays,weekend)<b.expenseOfHotel(weekdays,weekend)?a:b);
     }
 }
