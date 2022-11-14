@@ -1,9 +1,22 @@
 package com.bridgelabz;
 
+import java.util.ArrayList;
+
 public class Hotel {
     private String name;
     private int weekDayRateForRegularCustomer;
     private int weekeendRatesForRegularCustomer;
+
+    public Hotel() {
+    }
+
+    public Hotel(String name, int weekDayRateForRegularCustomer, int weekeendRatesForRegularCustomer, int rating) {
+        this.name = name;
+        this.weekDayRateForRegularCustomer = weekDayRateForRegularCustomer;
+        this.weekeendRatesForRegularCustomer = weekeendRatesForRegularCustomer;
+        this.rating = rating;
+    }
+
     private int rating;
 
     public int getRating() {
@@ -30,7 +43,6 @@ public class Hotel {
         this.weekDayRateForRegularCustomer = weekeendRatesForRegularCustomer;
     }
 
-
     public int getWeekendRatesForRegularCustomer() {
         return weekeendRatesForRegularCustomer;
     }
@@ -38,8 +50,19 @@ public class Hotel {
     public void setWeekendRatesForRegularCustomer(int weekeendRatesForRegularCustomer) {
         this.weekeendRatesForRegularCustomer = weekeendRatesForRegularCustomer;
     }
-    int expenseOfHotel(int weekdays,int weekend){
-        int expense = weekdays*weekDayRateForRegularCustomer+weekend*weekeendRatesForRegularCustomer;
+
+    int expenseOfHotel(int weekdays, int weekend) {
+        int expense = weekdays * weekDayRateForRegularCustomer + weekend * weekeendRatesForRegularCustomer;
         return expense;
+    }
+
+    @Override
+    public String toString() {
+        return "Hotel{" +
+                "name='" + name + '\'' +
+                ", weekDayRateForRegularCustomer=" + weekDayRateForRegularCustomer +
+                ", weekeendRatesForRegularCustomer=" + weekeendRatesForRegularCustomer +
+                ", rating=" + rating +
+                '}';
     }
 }

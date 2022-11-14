@@ -8,21 +8,15 @@ import java.util.List;
 import java.util.Map;
 
 public class Week {
-
     static long getWeekends(String strStartDate, String strEndDate) {
         Map<String, List<LocalDate>> map = new HashMap<>();
         List<LocalDate> weekdays = new ArrayList<>();
         List<LocalDate> weekends = new ArrayList<>();
-        try {
         map.put("weekdays", weekdays);
         map.put("weekends", weekends);
-
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/M/yyyy");
-
-        // Parse the string dates into LocalDate
         LocalDate startDate = LocalDate.parse(strStartDate, formatter);
         LocalDate enddDate = LocalDate.parse(strEndDate, formatter);
-
         for (LocalDate date = startDate; !date.isAfter(enddDate); date = date.plusDays(1)) {
             switch (date.getDayOfWeek()) {
                 case MONDAY:
@@ -36,10 +30,6 @@ public class Week {
                 case SUNDAY:
                     weekends.add(date);
             }
-        }
-
-    }catch (Exception e){
-            return weekends.stream().count();
         }
         return weekends.stream().count();
     }
