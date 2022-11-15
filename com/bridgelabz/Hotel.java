@@ -88,6 +88,10 @@ public class Hotel {
         int expense = weekdays*weekDayRateForRegularCustomer+weekend*weekeendRatesForRegularCustomer;
         return expense;
     }
+    int expenseOfHotelForRewardCustomer(int weekdays,int weekend){
+        int expense = weekdays*weekDayRateForRewardCustomer+weekend*weekendRateForRewardCustomer;
+        return expense;
+    }
 
     @Override
     public String toString() {
@@ -118,6 +122,9 @@ public class Hotel {
         weekendRateForRewardCustomer = scanner.nextInt();
         System.out.println("Enter hotel rating : ");
         this.setRating(scanner.nextDouble());
-
     }
+    void printDetailsForRewardCustomer(){
+        System.out.println( "' name '=" + name + '\'' + ", weekDayRateForRewardCustomer=" + weekDayRateForRewardCustomer + ", weekendRatesForRewardCustomer=" + weekendRateForRewardCustomer +" , totalExpense "+totalExpense+ " ,rating "+rating);
+    }
+
 }
