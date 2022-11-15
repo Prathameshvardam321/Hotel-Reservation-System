@@ -22,7 +22,7 @@ public class HotelMain {
             userChoice = scanner.nextInt();
             switch (userChoice){
                 case 1:Hotel hotel =new Hotel();
-                    System.out.println("choose customer\n 1.Normal customer\n2.Reward customer");
+                    System.out.println("choose customer\n 1.Normal customer\n2.Reward customer ");
                     int customerType = scanner.nextInt();
                     if (customerType==1){
                         hotel.inputToHotelToCustomer();
