@@ -1,28 +1,45 @@
 package com.bridgelabz;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class HotelMain {
-    ArrayList<Hotel> arrayList = new ArrayList<>();
-     void generateData(int weekDays, int weekendDays) {
-     arrayList.add(new Hotel("Lakewood",130,140,3));
-     arrayList.add(new Hotel("Ridgewood",140,150,4));
-     arrayList.add(new Hotel("Bridgewood",150,140,4));
-    Hotel cheapestHotel = arrayList.stream().reduce(arrayList.get(0),(a,b)->a.expenseOfHotel(weekDays,weekendDays)<b.expenseOfHotel(weekDays,weekendDays)?a:b);
-         System.out.println(cheapestHotel);
-     }
-
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter starting date : ");
-        String dateEntry = scanner.next();
-        System.out.println("Enter ending date : ");
-        String exitDate = scanner.next();
-        long weekDays = Week.getWeekdays(dateEntry,exitDate);
-        long weekendDays = Week.getWeekends(dateEntry,exitDate);
-        HotelMain hotelMain = new HotelMain();
-        hotelMain.generateData((int) weekDays, (int) weekendDays);
-    }
+        Scanner stringScanner = new Scanner(System.in);
+        ArrayList<Hotel> hotels = new ArrayList<>();
+        int userChoice ;
+        do {
+            System.out.println("1.Add Details\t2.Add rating\t3.view");
+            System.out.println("Enter choice : ");
+            userChoice = scanner.nextInt();
+            switch (userChoice){
+                case 1:Hotel hotel =new Hotel();
+                       hotel.inputToHotel();
+                       hotels.add(hotel);break;
+                case 2:
+                    System.out.println("Enter hotel name to enter :");
+                    String name = stringScanner.next();
+                    Iterator<Hotel> iterator = hotels.iterator();
+                    while (iterator.hasNext()){
+                        hotel = iterator.next();
+                        if (hotel.getName().equals(name)){
+                            System.out.println("Enter rating : ");
+                            hotel.setRating(scanner.nextInt());
+                            System.out.println("Added successfully");
+                        }
+                    }
+                    break;
+                case 3:
+                    iterator = hotels.iterator();
+                    while (iterator.hasNext()){
+                        hotel = iterator.next();
+                        System.out.println(hotel);
+                    }
+                    break;
+            }
 
+        }while (userChoice!=0);
+    }
 }
