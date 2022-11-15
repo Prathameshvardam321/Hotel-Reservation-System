@@ -1,5 +1,4 @@
 package com.bridgelabz;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 public class Hotel {
@@ -7,7 +6,7 @@ public class Hotel {
     private String name;
     private int weekDayRateForRegularCustomer;
     private int weekeendRatesForRegularCustomer;
-    private int rating;
+    private double rating;
     private int totalExpense;
 
     public int getTotalExpense() {
@@ -32,7 +31,7 @@ public class Hotel {
         return rating;
     }
 
-    public void setRating(int rating) {
+    public void setRating(double rating) {
         this.rating = rating;
     }
 
@@ -69,9 +68,7 @@ public class Hotel {
         return " Hotel { " +
                 "name='" + name + '\'' +
                 ", weekDayRateForRegularCustomer=" + weekDayRateForRegularCustomer +
-                ", weekendRatesForRegularCustomer=" + weekeendRatesForRegularCustomer +
-                ", rating=" + rating +
-                '}';
+                ", weekendRatesForRegularCustomer=" + weekeendRatesForRegularCustomer +" , totalExpense "+totalExpense+ '}';
     }
 
     void inputToHotel(){
@@ -82,6 +79,7 @@ public class Hotel {
      this.weekDayRateForRegularCustomer = scanner.nextInt();
      System.out.println("weekend days rate : ");
      this.weekeendRatesForRegularCustomer = scanner.nextInt();
-
+        System.out.println("Enter hotel rating : ");
+        this.setRating(scanner.nextDouble());
  }
 }
