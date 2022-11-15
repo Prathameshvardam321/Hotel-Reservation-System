@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.Scanner;
 
 public class HotelMain {
-    ArrayList<Hotel> hotelArrayList = new ArrayList<>();
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Week week = new Week();
@@ -27,7 +27,7 @@ public class HotelMain {
                        hotels.add(hotel);
                        break;
                 case 2:
-                  Hotel firstHotel = hotels.get(0);
+                   Hotel firstHotel = hotels.get(0);
                    Hotel cheaperHotel = hotels.stream().reduce(firstHotel,(a,b)->a.getTotalExpense()<b.getTotalExpense()&&a.getRating()> b.getRating()?a:b);
                     System.out.println(cheaperHotel.getName()+" is cheaper hotel with rate : "+cheaperHotel.getTotalExpense()+" with rating "+cheaperHotel.getRating());
                     break;
